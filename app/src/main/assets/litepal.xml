@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<litepal>
+    <dbname value="v2ex"></dbname>
+    <version value="1"></version>
+    <list>
+        <mapping class="com.fourfire.v2ex.data.bean.V2EXPost"></mapping>
+        <mapping class="com.fourfire.v2ex.data.bean.Reply"/>
+    </list>
+
+</litepal>
