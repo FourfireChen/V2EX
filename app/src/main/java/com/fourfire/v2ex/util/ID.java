@@ -5,9 +5,9 @@ package com.fourfire.v2ex.util;
  */
 
 public class ID {
-    public static String IS_FINISH_REFRESH = "isfinishrefresh";
-    public static String POST = "post";
-    public static String IS_FINISH_LOADMORE = "isfinishloadmore";
-    public static String POSITION = "position";
-    public static String PAGE = "page";
+    public static final String IS_FINISH_REFRESH = "isfinishrefresh";
+    public static final String POST = "post";
+    public static final String IS_FINISH_LOADMORE = "isfinishloadmore";
+    public static final String POSITION = "position";
+    public static final String PAGE = "page";
 }

@@ -28,5 +28,45 @@ public class MainViewpagerAdapter extends FragmentPagerAdapter {
         return fragments.size();
     }
 
-
+    @Override
+    public CharSequence getPageTitle(int position) {
+        String title = " 最新 ";
+        switch (position)
+        {
+            case 0:
+                title = " 最新 ";
+                break;
+            case 1:
+                title = " 最热 ";
+                break;
+            case 2:
+                title = " 技术 ";
+                break;
+            case 3:
+                title = " 创意 ";
+                break;
+            case 4:
+                title = " 好玩 ";
+                break;
+            case 5:
+                title = " Apple ";
+                break;
+            case 6:
+                title = " 酷工作 ";
+                break;
+            case 7:
+                title = " 交易 ";
+                break;
+            case 8:
+                title = " 城市 ";
+                break;
+            case 9:
+                title = " 问与答 ";
+                break;
+            case 10:
+                title = " R2 ";
+                break;
+        }
+        return title;
+    }
 }

@@ -10,29 +10,29 @@
         <ImageView
             android:layout_alignParentStart="true"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:src="@drawable/ic_launcher_background"
             android:id="@+id/post_avatar"
             android:layout_width="50dp"
             android:layout_height="50dp" />
         <TextView
             android:id="@+id/post_title"
-            android:text="标题标题就是我啊"
+            android:text="title"
             android:textSize="25dp"
-            android:gravity="center|left"
+            android:gravity="center|start"
             android:layout_marginVertical="10dp"
-            android:layout_alignLeft="@id/post_avatar"
+            android:layout_alignStart="@id/post_avatar"
             android:layout_below="@id/post_avatar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <TextView
             android:id="@+id/post_author"
-            android:text="作者作者"
+            android:text="作者"
             android:textSize="20dp"
             android:textColor="@color/colorAccent"
-            android:layout_toRightOf="@id/post_avatar"
+            android:layout_toEndOf="@id/post_avatar"
             android:layout_alignTop="@id/post_avatar"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <TextView
@@ -41,8 +41,8 @@
             android:textColor="@color/colorAccent"
             android:textSize="12dp"
             android:layout_alignBottom="@id/post_avatar"
-            android:layout_toRightOf="@id/post_avatar"
-            android:layout_alignLeft="@id/post_author"
+            android:layout_toEndOf="@id/post_avatar"
+            android:layout_alignStart="@id/post_author"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <TextView
@@ -50,9 +50,9 @@
             android:text="最后回复"
             android:textColor="@color/colorAccent"
             android:textSize="12dp"
-            android:layout_toRightOf="@id/post_time"
+            android:layout_toEndOf="@id/post_time"
             android:layout_alignBottom="@id/post_avatar"
-            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </RelativeLayout>
