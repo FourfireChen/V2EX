@@ -8,32 +8,26 @@ import android.widget.Toast;
  */
 
 
-public abstract class BaseFragment<T extends BasePresenter> extends Fragment implements IView
-{
+public abstract class BaseFragment<T extends BasePresenter> extends Fragment implements IView {
     private T presenter;
 
-    public T getPresenter()
-    {
+    public T getPresenter() {
         return presenter;
     }
 
-    public void setPresenter(T presenter)
-    {
+    public void setPresenter(T presenter) {
         this.presenter = presenter;
     }
 
     @Override
-    public void onDestroyView()
-    {
-
+    public void onDestroyView() {
         super.onDestroyView();
         presenter.destory();
         presenter = null;
     }
 
     @Override
-    public void toast(String content)
-    {
+    public void toast(String content) {
         Toast.makeText(getActivity(), content, Toast.LENGTH_LONG).show();
     }
 }

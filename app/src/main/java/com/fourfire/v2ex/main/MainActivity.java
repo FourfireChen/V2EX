@@ -6,10 +6,10 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+
 import com.fourfire.v2ex.R;
 import com.fourfire.v2ex.main.page.PageFragment;
 
-import org.litepal.crud.DataSupport;
 import org.litepal.tablemanager.Connector;
 
 import java.util.ArrayList;
@@ -20,27 +20,23 @@ import static com.fourfire.v2ex.util.ID.PAGE;
  * Created by 45089 on 2018/4/17.
  */
 
-public class MainActivity extends AppCompatActivity
-{
+public class MainActivity extends AppCompatActivity {
     private TabLayout tabLayout;
     private ViewPager viewPager;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState)
-    {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
         Connector.getDatabase();
         init();
     }
 
-    private void init()
-    {
+    private void init() {
         tabLayout = findViewById(R.id.main_toptabs);
         viewPager = findViewById(R.id.main_viewpager);
         ArrayList<Fragment> fragments = new ArrayList<>();
-        for(int i = 0; i < 11; i++)
-        {
+        for (int i = 0; i < 11; i++) {
             fragments.add(new PageFragment());
             Bundle bundle = new Bundle();
             bundle.putInt(PAGE, i);

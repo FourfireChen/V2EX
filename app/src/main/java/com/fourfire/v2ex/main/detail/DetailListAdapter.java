@@ -2,20 +2,11 @@ package com.fourfire.v2ex.main.detail;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
-import android.text.SpannableString;
 import android.text.Spanned;
-import android.text.style.ImageSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,63 +18,52 @@ import com.fourfire.v2ex.data.bean.Reply;
 import com.fourfire.v2ex.data.bean.V2EXPost;
 import com.fourfire.v2ex.util.RichTextImageGetter;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by 45089 on 2018/4/18.
  */
 
-public class DetailListAdapter extends RecyclerView.Adapter<DetailListAdapter.DetailViewHolder>
-{
+public class DetailListAdapter extends RecyclerView.Adapter<DetailListAdapter.DetailViewHolder> {
     private V2EXPost v2EXPost;
     private ArrayList<Reply> Replies;
     private Context context;
 
-    public DetailListAdapter()
-    {}
+    public DetailListAdapter() {}
 
-    public DetailListAdapter(Context context)
-    {
+    public DetailListAdapter(Context context) {
         this.context = context;
     }
 
-    public DetailListAdapter(V2EXPost v2EXPost)
-    {
+    public DetailListAdapter(V2EXPost v2EXPost) {
         this.v2EXPost = v2EXPost;
         Replies = (ArrayList<Reply>) v2EXPost.getReplies();
     }
 
     @Override
-    public DetailViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
-    {
+    public DetailViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.detail_item, parent, false);
         return new DetailViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(final DetailViewHolder holder, int position)
-    {
+    public void onBindViewHolder(final DetailViewHolder holder, int position) {
         int id = 0;
-        switch (position)
-        {
+        switch (position) {
             case 0:
                 holder.title.setText(v2EXPost.getTitle());
                 final String contentHtmlString = v2EXPost.getContent();
                 holder.avatar.setImageBitmap(BitmapFactory.decodeByteArray(v2EXPost.getAnthorAvatar(), 0, v2EXPost.getAnthorAvatar().length));
-                if(v2EXPost.getTime() != null)
+                if (v2EXPost.getTime() != null)
                     holder.time.setText(v2EXPost.getTime());
-                if(v2EXPost.getContent() != null)
-                {
+                if (v2EXPost.getContent() != null) {
                     new Thread(new Runnable() {
                         @Override
-                        public void run()
-                        {
+                        public void run() {
                             final Spanned spanned = Html.fromHtml(contentHtmlString, Html.FROM_HTML_MODE_LEGACY, new RichTextImageGetter(), null);
-                            ((Activity)context).runOnUiThread(new Runnable() {
+                            ((Activity) context).runOnUiThread(new Runnable() {
                                 @Override
-                                public void run()
-                                {
+                                public void run() {
                                     holder.content.setText(spanned);
                                 }
                             });
@@ -105,25 +85,21 @@ public class DetailListAdapter extends RecyclerView.Adapter<DetailListAdapter.De
     }
 
     @Override
-    public int getItemCount()
-    {
+    public int getItemCount() {
         return (v2EXPost == null ? 0 : v2EXPost.getReplies().size() + 1);
     }
 
-    public void setV2EXPost(V2EXPost v2EXPost)
-    {
+    public void setV2EXPost(V2EXPost v2EXPost) {
         this.v2EXPost = v2EXPost;
         this.Replies = (ArrayList<Reply>) v2EXPost.getReplies();
     }
 
-    class DetailViewHolder extends RecyclerView.ViewHolder
-    {
+    class DetailViewHolder extends RecyclerView.ViewHolder {
         private TextView author, time, title, content;
         private CardView replyBar;
         private ImageView avatar;
 
-        public DetailViewHolder(View itemView)
-        {
+        public DetailViewHolder(View itemView) {
             super(itemView);
             author = itemView.findViewById(R.id.detail_author);
             time = itemView.findViewById(R.id.detail_time);

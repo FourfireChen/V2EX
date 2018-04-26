@@ -10,28 +10,23 @@ import java.util.ArrayList;
  * Created by 45089 on 2018/4/17.
  */
 
-public class MainViewpagerAdapter extends FragmentPagerAdapter
-{
+public class MainViewpagerAdapter extends FragmentPagerAdapter {
     ArrayList<Fragment> fragments;
 
-    public MainViewpagerAdapter(FragmentManager fm, ArrayList<Fragment> fragments)
-    {
+    public MainViewpagerAdapter(FragmentManager fm, ArrayList<Fragment> fragments) {
         super(fm);
         this.fragments = fragments;
     }
 
     @Override
-    public Fragment getItem(int position)
-    {
+    public Fragment getItem(int position) {
         return fragments.get(position);
     }
 
     @Override
-    public int getCount()
-    {
+    public int getCount() {
         return fragments.size();
     }
-
 
 
 }
